@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Resultados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Logradouro</th>
+      <th>Numero</th>
+      <th>Bairro</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @searches.each do |search| %>
+      <tr>
+        <td><%= search.logradouro %></td>
+        <td><%= search.numero %></td>
+        <td><%= search.bairro %></td>
+        <td><%= link_to 'Editar', edit_search_path(search) %></td>
+        <td><%= link_to 'Apagar', search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if @searches.size != 0 %>
+    <% @endereco = pegar_ultimo(@searches,1) #atribuindo a variavel endereco o resultado  da action pegar ultimo %>
+    <% @coordenadas = buscarSQL(@endereco) %>
+    
+    <h3><%= @coordenadas %></h3>
+
+    <button> <%= link_to 'Nova busca', new_search_path %> </button>
+    <% @searches.each do |search| %>
+          <button><%= link_to 'Voltar', search, method: :delete %></button>
+   <% end %>
+
+<%else %>
+    <%= "Endereco nao cadastrado ou invalido" %><br><br>
+    <button> <%= link_to 'Nova busca', new_search_path %> </button>
+    <button> <%= link_to 'Voltar', root_path %> </button>
+<% end %>
+
+<br>
+
+
+
+
+

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Logradouro:</strong>
+  <%= @search.logradouro %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @search.numero %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @search.bairro %>
+</p>
+
+<button><%= link_to 'Editar', edit_search_path(@search) %></button>|
+<button><%= link_to 'Avançar', searches_path %></button>

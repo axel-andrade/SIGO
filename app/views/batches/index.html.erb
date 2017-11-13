@@ -1,0 +1,44 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<% if @batches.size() != 0 %>
+   
+   <br>
+   <button><%= link_to "Nova Consulta",new_batch_path %></button>
+   <br>
+   <br>
+   <% @batches.each do |batch| %>
+           <%= link_to "Voltar", batch, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{batch.name}?" %>
+   <% end %>
+   <br>
+   <br>
+   
+   <% if File.exist?("public/resultado.csv")==false %>
+
+   <% @diretorio = pegar_ultimo(@batches,2) #atribuindo a variavel endereco o resultado  da action pegar ultimo %>
+   <%= buscar_planilha(@diretorio) %>
+
+   <% end %>
+
+   <% if File.exist?("public/resultado.csv") %>
+       <h2> Resultado: </h2>><%= link_to "Baixar Resultado(.CSV)" ,:action => :download, :file_name => "resultado.csv" %>
+            
+       <% CSV.foreach("public/resultado.csv") do |row| %>
+       <h3><%= row  %><br><h3>
+       <% end %>
+   <%end%>
+
+
+   
+<% else %>
+<%= "Não ha nenhuma planilha para consulta" %>
+<br>
+<br>
+<%= link_to "Nova Consulta",new_batch_path %>
+<br>
+<%= link_to "Voltar", root_path %>
+<% end %>
+
