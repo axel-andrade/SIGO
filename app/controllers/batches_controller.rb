@@ -29,7 +29,7 @@ class BatchesController < ApplicationController
 
         @linha = row[0].to_s() +","+ row[1].to_s() +","+row[2].to_s() #juntando as colunas do excel
         @resultado = buscarSQL(@linha.to_s()) #enviando a linda para a funcao de busca e pegando o resultado
-		    arquivo.write("#{row[0]} | #{row[1]} | #{row[2]} | #{@resultado}\n")
+		    arquivo.write("#{row[0]} ; #{row[1]} ; #{row[2]} ; #{@resultado}\n")
 
         @resultado = ""
 

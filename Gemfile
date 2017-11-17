@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'ffi', '~> 1.9', '>= 1.9.18'
+gem 'rubypython', '~> 0.6.3'
 gem 'rails_12factor'
 gem 'pg', '~> 0.21.0'  
 gem 'carrierwave', '~> 1.2', '>= 1.2.1' #gema dos uploads

@@ -4,6 +4,8 @@
    </div>
 <% end %>
 
+<%= gerar_shapefile() %>
+<% zipar_arquivos() %>
 <% if @batches.size() != 0 %>
    
    <br>
@@ -24,8 +26,12 @@
    <% end %>
 
    <% if File.exist?("public/resultado.csv") %>
-       <h2> Resultado: </h2>><%= link_to "Baixar Resultado(.CSV)" ,:action => :download, :file_name => "resultado.csv" %>
-            
+       <h2> Resultado: </h2>
+       <%= link_to "Baixar Resultado(.CSV)" ,:action => :download, :file_name => "resultado.csv" %>
+       <br>
+       <br>
+       <%= link_to "Baixar Shapefile" ,:action => :download, :file_name => "resultado.zip" %>
+       <br>
        <% CSV.foreach("public/resultado.csv") do |row| %>
        <h3><%= row  %><br><h3>
        <% end %>
