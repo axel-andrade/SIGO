@@ -18,7 +18,7 @@
         <td><%= search.logradouro %></td>
         <td><%= search.numero %></td>
         <td><%= search.bairro %></td>
-        <td><%= link_to 'Editar', edit_search_path(search) %></td>
+        <td><%= link_to 'Editar', edit_search_path(search)%></td>
         <td><%= link_to 'Apagar', search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -38,8 +38,8 @@
 
 <%else %>
     <%= "Endereco nao cadastrado ou invalido" %><br><br>
-    <button> <%= link_to 'Nova busca', new_search_path %> </button>
-    <button> <%= link_to 'Voltar', root_path %> </button>
+    <%= button_to 'Nova busca', new_search_path, method: :get%>
+    <%= button_to 'Voltar', root_path, method: :get%>
 <% end %>
 
 <br>
