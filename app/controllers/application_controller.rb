@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :authenticate_user!
+  
   helper_method :buscarDBF
   helper_method :buscarSQL
   helper_method :pegar_ultimo

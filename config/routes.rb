@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :batches, only: [:index, :new, :create, :destroy]
 
   get 'download'=> 'batches#download'

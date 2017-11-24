@@ -1,3 +1,10 @@
+Hello <%= current_user.email %>
+<% if current_user.image.present? %>
+<%= image_tag(current_user.image, size: "40") %>
+<% end %>
+</p>
+</br>
+<%= link_to "Sair", destroy_user_session_path, method: :delete %></span></li>
 
 <!DOCTYPE html>
 <html>
@@ -12,8 +19,9 @@
     <p></p>
     <p>Geocodificação exata de endereços em Ouro Preto.</p>
     <p><a href="http://www.terralab.ufop.br/dokuwiki/doku.php">TerraLAB</a></p>
-  <button><%= link_to "Consulta Unitária",new_search_path %></button>
-  <button><%= link_to "Consulta em Lote",new_batch_path %></button>
+    <%= button_to "Consulta Unitária", new_search_path, method: :get %>
+    <br>
+    <%= button_to "Consulta em Lote", new_batch_path, method: :get %>
   <script src="scripts/main.js"></script>
   </body>
 </html> 

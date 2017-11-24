@@ -13,7 +13,7 @@
 <%if @batches.size() != 0 %> 
    
    <br>
-   <button><%= link_to "Nova Consulta",new_batch_path %></button>
+   <%= button_to "Nova Consulta",new_batch_path, method: :get %>
    <br>
    <br>
    <% @batches.each do |batch| %>

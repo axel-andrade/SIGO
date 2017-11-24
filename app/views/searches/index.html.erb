@@ -33,7 +33,7 @@
 
     <button> <%= link_to 'Nova busca', new_search_path %> </button>
     <% @searches.each do |search| %>
-          <button><%= link_to 'Voltar', search, method: :delete %></button>
+          <%= button_to 'Voltar', search, method: :delete %>
    <% end %>
 
 <%else %>

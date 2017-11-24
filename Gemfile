@@ -5,6 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'underscore-rails'
+gem 'gmaps4rails'
 gem 'ffi', '~> 1.9', '>= 1.9.18'
 gem 'rubypython', '~> 0.6.3'
 gem 'rails_12factor'

@@ -15,5 +15,5 @@
   <%= @search.bairro %>
 </p>
 
-<button><%= link_to 'Editar', edit_search_path(@search) %></button>|
-<button><%= link_to 'Avançar', searches_path %></button>
+<%= button_to 'Editar', edit_search_path(@search),method: :get %>
+<%= button_to 'Avançar', searches_path, method: :get %>
